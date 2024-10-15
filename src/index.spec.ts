@@ -102,4 +102,19 @@ describe('Calculator', (): void => {
 
     expect(displayValue).toEqual('10');
   });
+
+  it('should display "-1" when  -6 is added to five', (): void => {
+
+    calculator.pressFive();
+    calculator.pressPlus();
+    calculator.pressMinus();
+    calculator.pressSix()
+    calculator.pressEquals()
+    const displayValue: string = calculator.display();
+
+    expect(displayValue).toEqual('-1');
+
+  });
+
+  
 });
