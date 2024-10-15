@@ -104,30 +104,69 @@ describe('Calculator', (): void => {
   });
 
   it('should display "-1" when  -6 is added to five', (): void => {
-
     calculator.pressFive();
     calculator.pressPlus();
     calculator.pressMinus();
-    calculator.pressSix()
-    calculator.pressEquals()
+    calculator.pressSix();
+    calculator.pressEquals();
     const displayValue: string = calculator.display();
 
     expect(displayValue).toEqual('-1');
-
   });
 
   it('should display "-11" when  -6 is added to -5', (): void => {
-    calculator.pressMinus()
+    calculator.pressMinus();
     calculator.pressFive();
     calculator.pressPlus();
     calculator.pressMinus();
-    calculator.pressSix()
-    calculator.pressEquals()
+    calculator.pressSix();
+    calculator.pressEquals();
     const displayValue: string = calculator.display();
 
     expect(displayValue).toEqual('-11');
-
   });
 
-  
+  it('should display "-20" when -5 is multiplied by 4', (): void => {
+    calculator.pressMinus();
+    calculator.pressFive();
+    calculator.pressMult();
+    calculator.pressFour();
+    calculator.pressEquals();
+    const displayValue: string = calculator.display();
+
+    expect(displayValue).toEqual('-20');
+  });
+
+  it('should display `Infinty` when 1/0 is calculated', (): void => {
+    calculator.pressOne();
+    calculator.pressDiv();
+    calculator.pressZero();
+
+    calculator.pressEquals();
+    const displayValue: string = calculator.display();
+
+    expect(displayValue).toEqual('Infinity');
+  });
+
+  it('should display `NaN` when it is just operators', (): void => {
+    calculator.pressMult();
+    calculator.pressDiv();
+
+    calculator.pressEquals();
+    const displayValue: string = calculator.display();
+
+    expect(displayValue).toEqual('NaN');
+  });
+
+  it('should display `` when the contents are cleared is calculated', (): void => {
+    calculator.pressOne();
+    calculator.pressPlus();
+    calculator.pressZero();
+
+    calculator.pressEquals();
+    calculator.pressClear();
+    const displayValue: string = calculator.display();
+
+    expect(displayValue).toEqual('');
+  });
 });
