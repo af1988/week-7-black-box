@@ -169,4 +169,16 @@ describe('Calculator', (): void => {
 
     expect(displayValue).toEqual('');
   });
+
+  it('should display `5` when "2" is added to "6/3"', (): void => {
+    calculator.pressTwo();
+    calculator.pressPlus();
+    calculator.pressSix();
+    calculator.pressDiv();
+    calculator.pressTwo();
+    calculator.pressEquals();
+    const displayValue: string = calculator.display();
+
+    expect(displayValue).toEqual('5');
+  });
 });
