@@ -79,4 +79,27 @@ describe('Calculator', (): void => {
 
     expect(displayValue).toEqual('9');
   });
+
+  it('should display `0` when pressZero() is invoked', (): void => {
+    calculator.pressZero();
+    calculator.pressEquals();
+    const displayValue: string = calculator.display();
+
+    expect(displayValue).toEqual('0');
+  });
+
+  it('should display `10` when 9.9+0.1 is calculated', (): void => {
+    calculator.pressNine();
+    calculator.pressDot();
+    calculator.pressNine();
+    calculator.pressPlus();
+    calculator.pressZero();
+    calculator.pressDot();
+    calculator.pressOne();
+
+    calculator.pressEquals();
+    const displayValue: string = calculator.display();
+
+    expect(displayValue).toEqual('10');
+  });
 });
