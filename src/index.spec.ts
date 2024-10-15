@@ -116,5 +116,18 @@ describe('Calculator', (): void => {
 
   });
 
+  it('should display "-11" when  -6 is added to -5', (): void => {
+    calculator.pressMinus()
+    calculator.pressFive();
+    calculator.pressPlus();
+    calculator.pressMinus();
+    calculator.pressSix()
+    calculator.pressEquals()
+    const displayValue: string = calculator.display();
+
+    expect(displayValue).toEqual('-11');
+
+  });
+
   
 });
