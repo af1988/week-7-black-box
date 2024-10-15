@@ -170,7 +170,7 @@ describe('Calculator', (): void => {
     expect(displayValue).toEqual('');
   });
 
-  it('should display `5` when "2" is added to "6/3"', (): void => {
+  it('should display `5` when "2" is added to "6/2"', (): void => {
     calculator.pressTwo();
     calculator.pressPlus();
     calculator.pressSix();
@@ -180,5 +180,17 @@ describe('Calculator', (): void => {
     const displayValue: string = calculator.display();
 
     expect(displayValue).toEqual('5');
+  });
+
+  it('should display `1` when "7/1/7" is evaluated', (): void => {
+    calculator.pressSeven();
+    calculator.pressDiv();
+    calculator.pressOne();
+    calculator.pressDiv();
+    calculator.pressSeven();
+    calculator.pressEquals();
+    const displayValue: string = calculator.display();
+
+    expect(displayValue).toEqual('1');
   });
 });
